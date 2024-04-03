@@ -18,9 +18,6 @@ class ProfileController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-        }
-
         return $this->render('profile/index.html.twig', [
             'form' => $form->createView(),
         ]);
