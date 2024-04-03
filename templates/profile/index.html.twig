@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome to my Symfony App!{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<header class="bg-blue-500 text-white py-4">
+    <div class="container mx-auto px-4">
+        <h1 class="text-2xl">Welcome to my Symfony App!</h1>
+    </div>
+</header>
+
+<div id="content" class="container mx-auto mt-8 px-4">
+    {% block content %}
+        {{ form_start(form, {'attr': {'class': 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'}}) }}
+        {{ form_row(form.firstname, {'label': 'firstname'|trans, 'attr': {'class': 'mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+        {{ form_row(form.lastname, {'label': 'lastname'|trans, 'attr': {'class': 'mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+        {{ form_row(form.description, {'label': 'description'|trans, 'attr': {'class': 'mb-6 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            {{ 'submit'|trans }}
+        </button>
+        {{ form_end(form) }}
+    {% endblock %}
+</div>
+
+</body>
+</html>
